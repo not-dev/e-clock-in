@@ -2,7 +2,7 @@
 
 ---
 
-より簡単に、より怠惰に。  
+**より簡単に、より怠惰に。**  
 勤怠管理サービス「[e-革新](https://www.e-kakushin.com/login/)」のログインをサポートするChrome Extensionです。
 
 ## Features
