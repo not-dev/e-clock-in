@@ -1,5 +1,7 @@
 ![top](https://github.com/olture/easyLazy/blob/store/top.png?raw=true)
 
+---
+
 より簡単に、より怠惰に。  
 勤怠管理サービス「[e-革新](https://www.e-kakushin.com/login/)」のログインをサポートするChrome Extensionです。
 
@@ -12,7 +14,8 @@
 [Chrome Web Store](https://)でインストールしてください。
 
 ## Usage
-1. オプションで入力したいIDを設定して、いつも通り打刻しに行くだけで。  
+オプションで入力したいIDを設定して、いつも通り打刻しに行くだけで。  
+
 ![opt](https://github.com/olture/easyLazy/blob/store/opt.png?raw=true)
 ![secom](https://github.com/olture/easyLazy/blob/store/secom.png?raw=true)
 
