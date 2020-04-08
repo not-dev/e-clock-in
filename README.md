@@ -20,9 +20,11 @@
 
 オプションで入力したいIDを設定して、いつも通り打刻しに行くだけで。  
 
-|:-:|
 |![opt](https://github.com/olture/easyLazy/blob/store/opt.png?raw=true)|
+|:-:|
+
 |![secom](https://github.com/olture/easyLazy/blob/store/secom.png?raw=true)|
+|:-:|
 
 ## License
 
