@@ -1,3 +1,3 @@
 # easyLazy
 
-![](https://raw.githubusercontent.com/olture/easyLazy/store/top.svg)
+![top](https://raw.githubusercontent.com/olture/easyLazy/store/top.svg)
