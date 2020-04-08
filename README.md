@@ -1,7 +1,6 @@
-# easyLazy (勤怠惰刻くん)
-
 ![top](https://github.com/olture/easyLazy/blob/store/top.png?raw=true)
 
+# easyLazy (勤怠惰刻くん)
 
 より簡単に、より怠惰に。
 
