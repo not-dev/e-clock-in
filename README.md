@@ -28,8 +28,12 @@
 
 ## License
 
-* このプロジェクトはMITライセンスのもとで公開されています。
+* このプロジェクトはMITライセンスのもとで公開されています。(ただしロゴ等は除外します。)
+* ロゴ等についてはCC BY-NDに基づきます。
 * このプロジェクトはMITライセンスに基づいたオープンソースソフトウェアを含みます。
+* This project is released under the MIT license. (Excluding logos.)
+* logos are released under the CC BY-ND.
+* This project includes open source software under the MIT license.
 
 ## Disclaimer
 
