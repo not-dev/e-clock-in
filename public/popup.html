@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500&family=Roboto:wght@400;500&display=swap"
+    rel="stylesheet" />
+  <style type="text/css">
+    *,
+    *::before,
+    *::after {
+      font-family: "Roboto", "Noto Sans JP", "Helvetica", "Arial", YuGothic, "Yu Gothic", sans-serif;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #ccc;
+      margin: 0;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .button {
+      user-select: none;
+      cursor: pointer;
+      border: none;
+      outline: none;
+      text-align: center;
+      position: relative;
+      height: 36px;
+      line-height: 36px;
+      min-width: 64px;
+      border-radius: 4px;
+      padding-right: 16px;
+      padding-left: 16px;
+      /* padding-left: 12px; */
+      display: inline-block;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 1.25px;
+      color: white;
+      background-color: #009688;
+      box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.2), 0px 3px 4px 0px rgba(0, 0, 0, 0.14), 0px 1px 8px 0px rgba(0, 0, 0, 0.12);
+      overflow: hidden;
+      flex: 1;
+      max-width: 360px;
+      margin: 16px;
+      transition: all 200ms;
+    }
+
+    .button:hover {
+      background-color: #26a69a;
+      box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12);
+      transition: all 200ms;
+    }
+
+    .button img {
+      height: 18px;
+      width: 18px;
+      vertical-align: middle;
+    }
+
+    .button-icon-wrapper {
+      display: inline-block;
+      text-align: center;
+      margin-right: 8px;
+      transform: translateY(-1px);
+    }
+
+    .ripple-field {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .ripple {
+      position: absolute;
+      pointer-events: none;
+      background-color: white;
+      border-radius: 50%;
+      animation: rippleEffect 0.3s;
+      opacity: 0.25;
+    }
+
+    @keyframes rippleEffect {
+      from {
+        transform: scale(0);
+      }
+
+      to {
+        transform: scale(1);
+      }
+    }
+
+    .ripple-off {
+      opacity: 0;
+      transition: opacity .2s;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 32px;
+      width: 640px;
+      background-color: #333;
+      flex-wrap: wrap;
+    }
+
+    .flexbox {
+      display: flex;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-basis: 100%;
+    }
+
+    .title {
+      font-size: 48px;
+      font-weight: 400;
+      letter-spacing: 0.15rem;
+      color: #009688;
+      text-align: center;
+      width: 100%;
+      margin: 8px;
+    }
+
+    .logo {
+      width: 128px;
+      height: 128px;
+      margin: 16px;
+    }
+  </style>
+  <script type="text/javascript" src="popup.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <div class="flexbox">
+      <p class="title">e-Clock in</p>
+    </div>
+    <div class="flexbox">
+      <img src="options/icon.svg" class="logo">
+    </div>
+    <div class="flexbox">
+      <button class="button" id="getStarted">
+        GET STARTED
+      </button>
+    </div>
+  </div>
+</body>
+
+</html>
