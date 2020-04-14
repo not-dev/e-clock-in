@@ -2,7 +2,7 @@
 
 # e-Clock in
 
-より簡単に、より怠惰に。
+毎日の打刻を、より簡単に。
 
 勤怠管理サービス「[e-革新](https://www.e-kakushin.com/login/)」のログインをサポートするChrome Extensionです。
 
