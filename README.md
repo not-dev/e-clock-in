@@ -1,6 +1,6 @@
 ![top](https://github.com/olture/easyLazy/blob/store/top.png?raw=true)
 
-# easyLazy (勤怠惰刻くん)
+# e-Clock in
 
 より簡単に、より怠惰に。
 
@@ -28,12 +28,9 @@
 
 ## License
 
-* このプロジェクトはMITライセンスのもとで公開されています。(ただしロゴ等は除外します。)
-* ロゴ等についてはCC BY-NDに基づきます。
-* このプロジェクトはMITライセンスに基づいたオープンソースソフトウェアを含みます。
-* This project is released under the MIT license. (Excluding logos.)
-* logos are released under the CC BY-ND.
-* This project includes open source software under the MIT license.
+* Code: MIT License
+* Logos: CC BY-ND
+* This project includes open source software.
 
 ## Disclaimer
 
