@@ -1,4 +1,4 @@
-![top](https://github.com/olture/easyLazy/blob/store/top.png?raw=true)
+![top](https://github.com/olture/e-clock-in/blob/store/top.png?raw=true)
 
 # e-Clock in
 
@@ -20,10 +20,10 @@
 
 オプションで入力したいIDを設定して、いつも通り打刻しに行くだけで。  
 
-|![opt](https://github.com/olture/easyLazy/blob/store/opt.png?raw=true)|
+|![opt](https://github.com/olture/e-clock-in/blob/store/opt.png?raw=true)|
 |:-:|
 
-|![secom](https://github.com/olture/easyLazy/blob/store/secom.png?raw=true)|
+|![secom](https://github.com/olture/e-clock-in/blob/store/secom.png?raw=true)|
 |:-:|
 
 ## License
