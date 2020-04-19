@@ -1,4 +1,8 @@
-export const setLocalStorage = (obj, callback) => {
+interface strObject {
+  [key: string]: string
+}
+
+export const setLocalStorage = (obj:Object, callback:(...args:any) => void) => {
   for (const data of Object.entries(obj)) {
     try {
       localStorage.setItem(data[0], data[1])
@@ -10,20 +14,22 @@ export const setLocalStorage = (obj, callback) => {
   }
 }
 
-const isBoolean = (arg) => {
-  return typeof arg === 'boolean' || arg === 'true' || arg === 'false'
+const isBoolean = (arg:any) => {
+  return (typeof arg) === 'boolean' || arg === 'true' || arg === 'false'
 }
 
-const strToBoolean = (arg) => {
+const strToBoolean = (arg:any) => {
   return arg === 'true' ? true : arg === 'false' ? false : arg
 }
 
-export const getLocalStorage = (dummy, callback) => {
+export const getLocalStorage = (dummy:any, callback:(...args:any) => void) => {
   const tmp = ['customerID', 'userID', 'focusPassword']
-  const obj = {}
+  const obj:strObject = {}
   for (const key of tmp) {
     const res = localStorage.getItem(key)
     obj[key] = isBoolean(res) ? strToBoolean(res) : res
   }
   callback(obj)
 }
+
+export const closeTab = () => { alert('close') }

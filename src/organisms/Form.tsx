@@ -1,13 +1,33 @@
-import React from 'react'
+import React, { ChangeEvent } from 'react'
 import PropTypes from 'prop-types'
 
 import { Switch, TextField, Divider, Button, Typography, Link } from '@material-ui/core'
 
 import { makeStyles } from '@material-ui/core/styles'
 
-import { MyGrid as Grid } from '../atoms'
+import { MyGrid as Grid, InputLabel } from '../atoms'
 import { TextDialog, SimpleSnackbar } from '../molecules'
 import { saveOptions, loadOptions, closeTab } from '../utilitys'
+
+interface FormData {
+  title: string,
+  elem: {
+    key: {
+      init: string,
+      type: string,
+      label: string,
+      password?: boolean,
+      unsafe?: boolean,
+      warning?: string
+    }
+  }
+}
+interface strObject {
+  [key: string]: string
+}
+interface boolObject {
+  [key: string]: boolean
+}
 
 const useStyles = makeStyles((theme) => ({
   divider: {
@@ -18,12 +38,12 @@ const useStyles = makeStyles((theme) => ({
   }
 }))
 
-const Form = (props) => {
+const Form = (props:any) => {
   const classes = useStyles()
 
   const [state, setState] = React.useState(() => {
     const init = {
-      ...props.data.reduce((obj, d) => {
+      ...props.data.reduce((obj:strObject, d:FormData) => {
         const items = Object.entries(d.elem)
         for (const item of items) {
           obj[item[0]] = item[1].init
@@ -35,30 +55,30 @@ const Form = (props) => {
   })
 
   const [init] = React.useState(() => {
-    const dialogContents = props.data.reduce((obj, group, i) => {
+    const dialogContents = props.data.reduce((obj:Object, group:FormData) => {
       obj = {
         ...obj,
-        ...Object.entries(group.elem).reduce((res, [key, e]) => {
-          res[key] = e.warning
+        ...Object.entries(group.elem).reduce((res:strObject, [key, e]) => {
+          if (e.warning) { res[key] = e.warning }
           return res
         }, {})
       }
       return obj
     }, {})
-    loadOptions(null, (options) => setState({ ...state, ...options }))
+    loadOptions(null, (options:Object) => setState({ ...state, ...options }))
     return { dialogContents: dialogContents }
   })
 
-  const [error, setError] = React.useState({})
+  const [error, setError] = React.useState<boolObject>({})
 
-  const handleChange = (event) => {
-    const name = event.target.getAttribute('name')
+  const handleChange = (event:ChangeEvent<HTMLInputElement>) => {
+    const name = event.target.getAttribute('name') || ''
     setState({ ...state, [name]: !state[name] })
   }
 
-  const handleInput = (event) => {
+  const handleInput = (event:ChangeEvent<HTMLInputElement>) => {
     const input = event.target.value
-    const name = event.target.getAttribute('name')
+    const name = event.target.getAttribute('name') || ''
     if (input.match(/^[0-9a-zA-Z]+$/) || !input) {
       setState({ ...state, [name]: event.target.value })
       setError({ ...error, [name]: false })
@@ -75,20 +95,20 @@ const Form = (props) => {
 
   const [stateDialog, setStateDialog] = React.useState({
     show: false,
-    name: null
+    name: ''
   })
 
   const handleCloseDialog = () => {
     setStateDialog({ ...stateDialog, show: false })
   }
 
-  const handleCancel = (name) => {
+  const handleCancel = (name:string) => {
     setState({ ...state, [name]: !state[name] })
   }
 
-  const handleWarning = (event) => {
+  const handleWarning = (event:ChangeEvent<HTMLInputElement>) => {
     handleChange(event)
-    const name = event.target.getAttribute('name')
+    const name = event.target.getAttribute('name') || ''
     if (!state[name]) {
       setStateDialog({
         ...stateDialog,
@@ -99,9 +119,9 @@ const Form = (props) => {
   }
 
   React.useEffect(() => {
-    const unsafes = document.getElementsByClassName('unsafe')
+    const unsafes = document.getElementsByClassName('unsafe') as HTMLCollectionOf<HTMLElement>
     const showUnsafe = state.fillPassword
-    for (const unsafe of unsafes) {
+    for (const unsafe of Array.from(unsafes)) {
       if (showUnsafe) {
         unsafe.style.display = 'flex'
       } else {
@@ -112,7 +132,7 @@ const Form = (props) => {
 
   return (
     <Grid container>
-      {props.data.map((d, i) => {
+      {props.data.map((d:FormData, i:number) => {
         return (
           <Grid item container key={i} >
             <Grid item >
@@ -142,13 +162,13 @@ const Form = (props) => {
                 return (
                   <Grid item container key={name}>
                     <Grid item xs={true}>
-                      <Typography
+                      <InputLabel
                         variant='subtitle1'
                         onClick={f}
                         name={name}
                       >
                         {e.label}
-                      </Typography>
+                      </InputLabel>
                     </Grid>
                     <Grid item xs={false}>
                       <Switch

@@ -1,5 +1,13 @@
 import { teal, orange, red, blue, green, grey } from '@material-ui/core/colors'
-import { createMuiTheme } from '@material-ui/core'
+import { createMuiTheme, ThemeOptions } from '@material-ui/core'
+
+declare module '@material-ui/core/styles/createMuiTheme' {
+  interface ThemeOptions {
+    layout?: {
+      drawerWidth?: React.CSSProperties['width']
+    }
+  }
+}
 
 const theme = createMuiTheme({
   palette: {

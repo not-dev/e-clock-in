@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 import { Typography, Link } from '@material-ui/core'
 
-const Copyright = (props) => {
+const Copyright = (props:any) => {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
