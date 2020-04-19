@@ -8,13 +8,13 @@ export const setChromeStorageSync = (obj:Object, callback:(...args:any) => void)
   chrome.storage.sync.set(obj, callback)
 }
 
-export const getChromeStorageLocal = (key:string, callback:(...args:any) => void) => {
+export const getChromeStorageLocal = (key:string | null, callback:(...args:any) => void) => {
   chrome.storage.local.get(key, (res) => {
     callback(res)
   })
 }
 
-export const getChromeStorageSync = (key:string, callback:(...args:any) => void) => {
+export const getChromeStorageSync = (key:string | null, callback:(...args:any) => void) => {
   chrome.storage.sync.get(key, (res) => {
     callback(res)
   })
