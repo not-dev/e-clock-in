@@ -11,25 +11,17 @@ import { makeStyles } from '@material-ui/core/styles'
 
 import { Form } from '../organisms'
 
-const asyncSetTimeout = (msec:number, func = () => { }) => {
-  let timeoutId:any
-  let r:any
+const asyncSetTimeout = (msec:number, func = () => {}) => {
+  let timeoutId:number
   const exec = () => new Promise((resolve) => {
-    r = resolve
-    timeoutId = setTimeout(async () => {
-      timeoutId = null
-      await func()
-      resolve()
+    timeoutId = window.setTimeout(() => {
+      resolve(func())
     }, msec)
   })
   return {
     exec,
     cancel: () => {
-      if (timeoutId) {
-        clearTimeout(timeoutId)
-        timeoutId = null
-        r()
-      }
+      timeoutId && window.clearTimeout(timeoutId)
     }
   }
 }

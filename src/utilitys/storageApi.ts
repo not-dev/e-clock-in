@@ -31,5 +31,3 @@ export const getLocalStorage = (dummy:any, callback:(...args:any) => void) => {
   }
   callback(obj)
 }
-
-export const closeTab = () => { alert('close') }

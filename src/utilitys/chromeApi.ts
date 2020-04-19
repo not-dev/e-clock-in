@@ -1,5 +1,9 @@
 /* global chrome */
 
+export const isChrome = () => {
+  return Boolean(chrome.storage)
+}
+
 export const setChromeStorageLocal = (obj:Object, callback:(...args:any) => void) => {
   chrome.storage.local.set(obj, callback)
 }
@@ -20,6 +24,6 @@ export const getChromeStorageSync = (key:string | null, callback:(...args:any) =
   })
 }
 
-export const closeTab = () => chrome.tabs.getCurrent((tab) => {
+export const closeChromeTab = () => chrome.tabs.getCurrent((tab) => {
   if (tab && tab.id) chrome.tabs.remove(tab.id, () => {})
 })

@@ -149,7 +149,7 @@ const Form = (props:any) => {
                       onChange={handleInput}
                       label={e.label}
                       name={name}
-                      value={state[name]}
+                      value={state[name] || ''}
                       type={e.password ? 'password' : 'email'}
                       title=''
                       error={error[name]}
