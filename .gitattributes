@@ -1,0 +1,6 @@
+config/* linguist-vendored
+res/* linguist-vendored
+scripts/* linguist-vendored
+test/* linguist-vendored
+
+*.tsx linguist-language=typescript
