@@ -10,7 +10,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-const TextDialog = props => {
+const TextDialog = (props:any) => {
   const classes = useStyles()
   return (
     <Dialog

@@ -1,14 +1,14 @@
 /* global chrome */
 
 const forms = document.getElementsByTagName('form') || []
+const exec = (msec, func = () => { }) => new Promise((resolve) => {
+  setTimeout(async () => {
+    await func()
+    resolve()
+  }, msec)
+})
 for (const form of forms) {
   if (form.action.endsWith('/docroot/realm/login')) {
-    const exec = (msec, func = () => { }) => new Promise((resolve) => {
-      setTimeout(async () => {
-        await func()
-        resolve()
-      }, msec)
-    })
     chrome.storage.local.get(null, (options) => {
       if (options.customerID != null) {
         document.getElementsByName('customerCodeAlias')[0].value = options.customerID

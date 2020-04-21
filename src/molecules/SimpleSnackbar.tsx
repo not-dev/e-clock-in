@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import { makeStyles } from '@material-ui/core/styles'
 import { Button, Snackbar } from '@material-ui/core'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles(() => ({
   root: {
     '& .MuiSnackbarContent-root': {
       width: '60vw',
@@ -15,7 +15,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-const SimpleSnackbar = (props) => {
+const SimpleSnackbar = (props:any) => {
   const classes = useStyles()
   return (
     <Snackbar

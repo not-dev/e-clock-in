@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 import { Grid } from '@material-ui/core'
 
-const MyGrid = ({ children, ...props }) => {
+const MyGrid:any = ({ children, ...props }:any) => {
   const containerprops = props.container && {
     justify: 'center',
     alignItems: 'center',
@@ -16,7 +16,6 @@ const MyGrid = ({ children, ...props }) => {
     <Grid {...containerprops} {...itemprops} {...props}>
       {children}
     </Grid>
-
   )
 }
 

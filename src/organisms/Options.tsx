@@ -11,25 +11,17 @@ import { makeStyles } from '@material-ui/core/styles'
 
 import { Form } from '../organisms'
 
-const asyncSetTimeout = (msec, func = () => { }) => {
-  let timeoutId
-  let r
+const asyncSetTimeout = (msec:number, func = () => {}) => {
+  let timeoutId:number
   const exec = () => new Promise((resolve) => {
-    r = resolve
-    timeoutId = setTimeout(async () => {
-      timeoutId = null
-      await func()
-      resolve()
+    timeoutId = window.setTimeout(() => {
+      resolve(func())
     }, msec)
   })
   return {
     exec,
     cancel: () => {
-      if (timeoutId) {
-        clearTimeout(timeoutId)
-        timeoutId = null
-        r()
-      }
+      timeoutId && window.clearTimeout(timeoutId)
     }
   }
 }
@@ -89,15 +81,15 @@ const useStyles = makeStyles((theme) => ({
   }
 }))
 
-const Options = (props) => {
+const Options = (props:any) => {
   const classes = useStyles()
 
   const [action, setAction] = React.useState(false)
-  const [timer, setTimer] = React.useState(null)
+  const [timer, setTimer] = React.useState(asyncSetTimeout(0))
 
   const handleClick = async () => {
     const prevTimer = timer
-    if (action) {
+    if (action && prevTimer) {
       prevTimer.cancel()
       setAction(false)
     }
