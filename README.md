@@ -1,4 +1,4 @@
-![top](https://github.com/not-dev/e-clock-in/blob/store/top.png?raw=true)
+![top](https://raw.githubusercontent.com/not-dev/e-clock-in/master/res/top.png)
 
 # e-Clock in
 
@@ -8,22 +8,22 @@
 
 ## Features
 
-毎日ユーザーIDを打ち込んでる？  
-パスワードマネージャーを使っているけど企業コードは入力してくれない？  
+毎日ユーザーIDを打ち込んでる？
+パスワードマネージャーを使っているけど企業コードは入力してくれない？
 安心してください、入ってますよ。
 
 ## Installation
 
-[Chrome Web Store](https://)でインストールしてください。
+[Chrome Web Store](https://chrome.google.com/webstore/detail/e-clock-in/ehgdbinldmgpdilamgemfibdhimdfljo)でインストールしてください。
 
 ## Usage
 
-オプションで入力したいIDを設定して、いつも通り打刻しに行くだけで。  
+オプションで入力したいIDを設定して、いつも通り打刻しに行くだけで。
 
-|![opt](https://github.com/not-dev/e-clock-in/blob/store/opt.png?raw=true)|
+|![opt](https://raw.githubusercontent.com/not-dev/e-clock-in/master/res/opt.png)|
 |:-:|
 
-|![secom](https://github.com/not-dev/e-clock-in/blob/store/secom.png?raw=true)|
+|![secom](https://raw.githubusercontent.com/not-dev/e-clock-in/master/res/secom.png)|
 |:-:|
 
 ## License
