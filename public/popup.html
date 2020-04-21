@@ -15,88 +15,7 @@
     }
 
     body {
-      background-color: #ccc;
       margin: 0;
-    }
-
-    a {
-      text-decoration: none;
-    }
-
-    .button {
-      user-select: none;
-      cursor: pointer;
-      border: none;
-      outline: none;
-      text-align: center;
-      position: relative;
-      height: 36px;
-      line-height: 36px;
-      min-width: 64px;
-      border-radius: 4px;
-      padding-right: 16px;
-      padding-left: 16px;
-      /* padding-left: 12px; */
-      display: inline-block;
-      font-size: 14px;
-      font-weight: 500;
-      letter-spacing: 1.25px;
-      color: white;
-      background-color: #009688;
-      box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.2), 0px 3px 4px 0px rgba(0, 0, 0, 0.14), 0px 1px 8px 0px rgba(0, 0, 0, 0.12);
-      overflow: hidden;
-      flex: 1;
-      max-width: 360px;
-      margin: 16px;
-      transition: all 200ms;
-    }
-
-    .button:hover {
-      background-color: #26a69a;
-      box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12);
-      transition: all 200ms;
-    }
-
-    .button img {
-      height: 18px;
-      width: 18px;
-      vertical-align: middle;
-    }
-
-    .button-icon-wrapper {
-      display: inline-block;
-      text-align: center;
-      margin-right: 8px;
-      transform: translateY(-1px);
-    }
-
-    .ripple-field {
-      position: relative;
-      overflow: hidden;
-    }
-
-    .ripple {
-      position: absolute;
-      pointer-events: none;
-      background-color: white;
-      border-radius: 50%;
-      animation: rippleEffect 0.3s;
-      opacity: 0.25;
-    }
-
-    @keyframes rippleEffect {
-      from {
-        transform: scale(0);
-      }
-
-      to {
-        transform: scale(1);
-      }
-    }
-
-    .ripple-off {
-      opacity: 0;
-      transition: opacity .2s;
     }
 
     .container {
@@ -133,7 +52,7 @@
       margin: 16px;
     }
   </style>
-  <script type="text/javascript" src="popup.js"></script>
+  <script type="text/javascript" src="./simple-material-button.min.js"></script>
 </head>
 
 <body>
@@ -145,7 +64,8 @@
       <img src="options/icon.svg" class="logo">
     </div>
     <div class="flexbox">
-      <button class="button" id="getStarted">
+      <button class="simple-material-button" onclick="window.open('options/index.html', '_blank', 'noopener')"
+        background-color="#009688" width="480px">
         GET STARTED
       </button>
     </div>
