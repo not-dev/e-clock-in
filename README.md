@@ -1,4 +1,4 @@
-![top](https://raw.githubusercontent.com/not-dev/e-clock-in/master/res/top.png)
+![top](./res/top.png)
 
 # e-Clock in
 
@@ -20,10 +20,10 @@
 
 オプションで入力したいIDを設定して、いつも通り打刻しに行くだけで。
 
-|![opt](https://raw.githubusercontent.com/not-dev/e-clock-in/master/res/opt.png)|
+|![opt](./res/opt.png)|
 |:-:|
 
-|![secom](https://raw.githubusercontent.com/not-dev/e-clock-in/master/res/secom.png)|
+|![secom](./res/secom.png)|
 |:-:|
 
 ## License
