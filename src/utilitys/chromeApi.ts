@@ -4,11 +4,11 @@ export const isChrome = () => {
   return Boolean(chrome.storage)
 }
 
-export const setChromeStorageLocal = (obj:Object, callback:(...args:any) => void) => {
+export const setChromeStorageLocal = (obj:object, callback:(...args:any) => void) => {
   chrome.storage.local.set(obj, callback)
 }
 
-export const setChromeStorageSync = (obj:Object, callback:(...args:any) => void) => {
+export const setChromeStorageSync = (obj:object, callback:(...args:any) => void) => {
   chrome.storage.sync.set(obj, callback)
 }
 

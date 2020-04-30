@@ -1,9 +1,12 @@
+import { Typography, TypographyProps } from '@material-ui/core'
 import React from 'react'
-import PropTypes from 'prop-types'
 
-import { Typography } from '@material-ui/core'
+type InputLabal = TypographyProps & {
+  onClick?: () => void
+  name?: string
+}
 
-const InputLabel:any = ({ children, ...props }:any) => {
+const InputLabel:React.FC<InputLabal> = ({ children, ...props }) => {
   return (
     <Typography {...props}>
       {children}
@@ -11,8 +14,4 @@ const InputLabel:any = ({ children, ...props }:any) => {
   )
 }
 
-InputLabel.propTypes = {
-  children: PropTypes.node
-}
-
-export default InputLabel
+export { InputLabel }

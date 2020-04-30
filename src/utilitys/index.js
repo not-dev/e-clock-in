@@ -1,5 +1,5 @@
-import { isChrome, setChromeStorageLocal, getChromeStorageLocal, closeChromeTab } from './chromeApi'
-import { setLocalStorage, getLocalStorage } from './storageApi'
+import { closeChromeTab, getChromeStorageLocal, isChrome, setChromeStorageLocal } from './chromeApi'
+import { getLocalStorage, setLocalStorage } from './storageApi'
 
 const saveOptions = isChrome() ? setChromeStorageLocal : setLocalStorage
 const loadOptions = isChrome() ? getChromeStorageLocal : getLocalStorage

@@ -1,15 +1,12 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-
-import clsx from 'clsx'
-import { Typography, Avatar, Container, Box, Link, Divider } from '@material-ui/core'
-import SettingsIcon from '@material-ui/icons/Settings'
+import { Avatar, Box, Container, Divider, Link, Typography } from '@material-ui/core'
+import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
 // import OpenInNewIcon from '@material-ui/icons/OpenInNew'
 import GitHubIcon from '@material-ui/icons/GitHub'
+import SettingsIcon from '@material-ui/icons/Settings'
+import clsx from 'clsx'
+import React from 'react'
 
-import { makeStyles } from '@material-ui/core/styles'
-
-import { Form } from '../organisms'
+import { Form, FormProps } from '../organisms'
 
 const asyncSetTimeout = (msec:number, func = () => {}) => {
   let timeoutId:number
@@ -26,7 +23,7 @@ const asyncSetTimeout = (msec:number, func = () => {}) => {
   }
 }
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles((theme:Theme) => createStyles({
   root: {
     display: 'flex',
     flexDirection: 'column',
@@ -81,7 +78,11 @@ const useStyles = makeStyles((theme) => ({
   }
 }))
 
-const Options = (props:any) => {
+type OptionsProps = {
+  form: FormProps
+}
+
+const Options = (props:OptionsProps) => {
   const classes = useStyles()
 
   const [action, setAction] = React.useState(false)
@@ -125,8 +126,4 @@ const Options = (props:any) => {
   )
 }
 
-Options.propTypes = {
-  form: PropTypes.object
-}
-
-export default Options
+export { Options }

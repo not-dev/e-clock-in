@@ -1,8 +1,4 @@
-interface strObject {
-  [key: string]: string
-}
-
-export const setLocalStorage = (obj:Object, callback:(...args:any) => void) => {
+export const setLocalStorage = (obj:object, callback:(...args:any) => void) => {
   for (const data of Object.entries(obj)) {
     try {
       localStorage.setItem(data[0], data[1])
@@ -24,7 +20,7 @@ const strToBoolean = (arg:any) => {
 
 export const getLocalStorage = (dummy:any, callback:(...args:any) => void) => {
   const tmp = ['customerID', 'userID', 'focusPassword']
-  const obj:strObject = {}
+  const obj:{[k:string]:string} = {}
   for (const key of tmp) {
     const res = localStorage.getItem(key)
     obj[key] = isBoolean(res) ? strToBoolean(res) : res

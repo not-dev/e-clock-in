@@ -1,4 +1,2 @@
-import MyGrid from './MyGrid'
-import InputLabel from './InputLabel'
-
-export { MyGrid, InputLabel }
+export * from './InputLabel'
+export * from './MyGrid'

@@ -1,11 +1,9 @@
+import CssBaseline from '@material-ui/core/CssBaseline'
+import { StylesProvider, ThemeProvider } from '@material-ui/core/styles'
 import React from 'react'
 
-import CssBaseline from '@material-ui/core/CssBaseline'
-
-import { ThemeProvider, StylesProvider } from '@material-ui/core/styles'
-
 import { Options } from '../organisms'
-import theme from '../theme'
+import { theme } from '../theme'
 
 const App = () => {
   return (
@@ -68,8 +66,8 @@ const App = () => {
               }
             ],
             link: {
-              target: null,
-              text: null
+              target: '',
+              text: ''
             }
           }}
         />
@@ -78,4 +76,4 @@ const App = () => {
   )
 }
 
-export default App
+export { App }

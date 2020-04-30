@@ -1,5 +1,5 @@
-import { teal, orange, red, blue, green, grey } from '@material-ui/core/colors'
 import { createMuiTheme, ThemeOptions } from '@material-ui/core'
+import { blue, green, grey, orange, red, teal } from '@material-ui/core/colors'
 
 declare module '@material-ui/core/styles/createMuiTheme' {
   interface ThemeOptions {
@@ -68,4 +68,4 @@ const theme = createMuiTheme({
   }
 })
 
-export default theme
+export { theme }

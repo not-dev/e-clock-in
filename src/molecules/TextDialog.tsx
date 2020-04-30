@@ -1,34 +1,37 @@
+import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogProps, DialogTitle } from '@material-ui/core'
+import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
 import React from 'react'
-import PropTypes from 'prop-types'
 
-import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from '@material-ui/core'
-import { makeStyles } from '@material-ui/core/styles'
-
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme:Theme) => createStyles({
   title: {
     color: theme.palette.warning.main
   }
 }))
 
-const TextDialog = (props:any) => {
+type TextDialogProps = DialogProps & {
+  onClose: () => void
+  handleCancel: () => void
+}
+
+const TextDialog:React.FC<TextDialogProps> = (props) => {
   const classes = useStyles()
   return (
     <Dialog
       open={props.open}
-      onClose={props.handleClose}
+      onClose={props.onClose}
       scroll="paper"
     >
       <DialogTitle className={classes.title}>Warning</DialogTitle>
       <DialogContent dividers>
         <DialogContentText style={{ whiteSpace: 'pre-line', margin: '1.5em 0' }}>
-          {props.content}
+          {props.children}
         </DialogContentText>
       </DialogContent>
       <DialogActions>
-        <Button onClick={() => { props.handleClose(); props.handleCancel(props.name) }} color="primary">
+        <Button onClick={() => { props.onClose(); props.handleCancel() }} color="primary">
           CANCEL
         </Button>
-        <Button onClick={props.handleClose} color="primary" >
+        <Button onClick={props.onClose} color="primary" >
           CONTINUE
         </Button>
       </DialogActions>
@@ -36,12 +39,4 @@ const TextDialog = (props:any) => {
   )
 }
 
-TextDialog.propTypes = {
-  open: PropTypes.bool,
-  handleClose: PropTypes.func,
-  handleCancel: PropTypes.func,
-  content: PropTypes.node,
-  name: PropTypes.string
-}
-
-export default TextDialog
+export { TextDialog }

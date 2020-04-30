@@ -1,10 +1,8 @@
+import { Button, Snackbar, SnackbarProps } from '@material-ui/core'
+import { createStyles, makeStyles } from '@material-ui/core/styles'
 import React from 'react'
-import PropTypes from 'prop-types'
 
-import { makeStyles } from '@material-ui/core/styles'
-import { Button, Snackbar } from '@material-ui/core'
-
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles(() => createStyles({
   root: {
     '& .MuiSnackbarContent-root': {
       width: '60vw',
@@ -15,7 +13,15 @@ const useStyles = makeStyles(() => ({
   }
 }))
 
-const SimpleSnackbar = (props:any) => {
+type SimpleSnackbarProps = SnackbarProps & {
+  onAction: () => void
+}
+
+const hasAction = (props: any): props is SimpleSnackbarProps => {
+  return props.action !== undefined
+}
+
+const SimpleSnackbar:React.FC<SnackbarProps|SimpleSnackbarProps> = (props) => {
   const classes = useStyles()
   return (
     <Snackbar
@@ -24,8 +30,8 @@ const SimpleSnackbar = (props:any) => {
       open={props.open}
       onClose={props.onClose}
       message={props.message}
-      action={props.action &&
-          <Button color="secondary" size="small" onClick={() => { props.onClose(); props.onAction() }}>
+      action={hasAction(props) &&
+          <Button color="secondary" size="small" onClick={props.onAction}>
             {props.action}
           </Button>
       }
@@ -34,13 +40,4 @@ const SimpleSnackbar = (props:any) => {
   )
 }
 
-SimpleSnackbar.propTypes = {
-  anchorOrigin: PropTypes.object,
-  open: PropTypes.bool,
-  onClose: PropTypes.func,
-  message: PropTypes.string,
-  action: PropTypes.string,
-  onAction: PropTypes.func
-}
-
-export default SimpleSnackbar
+export { SimpleSnackbar }

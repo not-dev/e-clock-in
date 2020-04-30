@@ -1,35 +1,13 @@
+import { Button, Divider, Link, Switch, TextField, Typography } from '@material-ui/core'
+import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
+import clsx from 'clsx'
 import React, { ChangeEvent } from 'react'
-import PropTypes from 'prop-types'
 
-import { Switch, TextField, Divider, Button, Typography, Link } from '@material-ui/core'
+import { InputLabel, MyGrid as Grid } from '../atoms'
+import { SimpleSnackbar, TextDialog } from '../molecules'
+import { closeTab, loadOptions, saveOptions } from '../utilitys'
 
-import { makeStyles } from '@material-ui/core/styles'
-
-import { MyGrid as Grid, InputLabel } from '../atoms'
-import { TextDialog, SimpleSnackbar } from '../molecules'
-import { saveOptions, loadOptions, closeTab } from '../utilitys'
-
-interface FormData {
-  title: string,
-  elem: {
-    key: {
-      init: string,
-      type: string,
-      label: string,
-      password?: boolean,
-      unsafe?: boolean,
-      warning?: string
-    }
-  }
-}
-interface strObject {
-  [key: string]: string
-}
-interface boolObject {
-  [key: string]: boolean
-}
-
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles((theme:Theme) => createStyles({
   divider: {
     margin: `${theme.spacing(2)}px 0`
   },
@@ -38,12 +16,32 @@ const useStyles = makeStyles((theme) => ({
   }
 }))
 
-const Form = (props:any) => {
+export type FormProps = {
+  data: Array<{
+    title: string
+    elem: {
+      [key:string]: {
+        init: string|boolean
+        type: string
+        label: string
+        warning?: string
+        password?: boolean
+        unsafe?: boolean
+      }
+    }
+  }>,
+  link:{
+    target: string
+    text: string
+  }
+}
+
+const Form = (props:FormProps) => {
   const classes = useStyles()
 
   const [state, setState] = React.useState(() => {
-    const init = {
-      ...props.data.reduce((obj:strObject, d:FormData) => {
+    const init:{[k:string]:string|boolean} = {
+      ...props.data.reduce((obj:{[k:string]:string|boolean}, d) => {
         const items = Object.entries(d.elem)
         for (const item of items) {
           obj[item[0]] = item[1].init
@@ -55,21 +53,21 @@ const Form = (props:any) => {
   })
 
   const [init] = React.useState(() => {
-    const dialogContents = props.data.reduce((obj:Object, group:FormData) => {
+    const dialogContents = props.data.reduce((obj:{[k:string]:string}, group) => {
       obj = {
         ...obj,
-        ...Object.entries(group.elem).reduce((res:strObject, [key, e]) => {
+        ...Object.entries(group.elem).reduce((res:{[k:string]:string}, [key, e]) => {
           if (e.warning) { res[key] = e.warning }
           return res
         }, {})
       }
       return obj
     }, {})
-    loadOptions(null, (options:Object) => setState({ ...state, ...options }))
+    loadOptions(null, (options:object) => setState({ ...state, ...options }))
     return { dialogContents: dialogContents }
   })
 
-  const [error, setError] = React.useState<boolObject>({})
+  const [error, setError] = React.useState<{[k:string]:boolean}>({})
 
   const handleChange = (event:ChangeEvent<HTMLInputElement>) => {
     const name = event.target.getAttribute('name') || ''
@@ -132,7 +130,7 @@ const Form = (props:any) => {
 
   return (
     <Grid container>
-      {props.data.map((d:FormData, i:number) => {
+      {props.data.map((d, i:number) => {
         return (
           <Grid item container key={i} >
             <Grid item >
@@ -142,7 +140,7 @@ const Form = (props:any) => {
               const [name, e] = items
               if (e.type === 'TextField') {
                 return (
-                  <Grid item className={e.unsafe && 'unsafe'} key={name}>
+                  <Grid item className={clsx(e.unsafe && 'unsafe')} key={name}>
                     <TextField
                       variant="outlined"
                       fullWidth
@@ -164,7 +162,7 @@ const Form = (props:any) => {
                     <Grid item xs={true}>
                       <InputLabel
                         variant='subtitle1'
-                        onClick={f}
+                        onClick={f as () => void}
                         name={name}
                       >
                         {e.label}
@@ -172,7 +170,7 @@ const Form = (props:any) => {
                     </Grid>
                     <Grid item xs={false}>
                       <Switch
-                        checked={state[name]}
+                        checked={Boolean(state[name])}
                         onChange={f}
                         name={name}
                         color="primary"
@@ -210,11 +208,11 @@ const Form = (props:any) => {
       </Grid>
       <TextDialog
         open={stateDialog.show}
-        handleClose={handleCloseDialog}
-        handleCancel={handleCancel}
-        content={stateDialog.name ? init.dialogContents[stateDialog.name] : <></>}
-        name={stateDialog.name}
-      ></TextDialog>
+        onClose={handleCloseDialog}
+        handleCancel={() => handleCancel(stateDialog.name)}
+      >
+        {stateDialog.name ? init.dialogContents[stateDialog.name] : <></>}
+      </TextDialog>
       <SimpleSnackbar
         open={showBar}
         onClose={() => setShowBar(false)}
@@ -226,9 +224,4 @@ const Form = (props:any) => {
   )
 }
 
-Form.propTypes = {
-  data: PropTypes.array,
-  link: PropTypes.object
-}
-
-export default Form
+export { Form }
