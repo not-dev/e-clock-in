@@ -142,7 +142,7 @@ const Form = (props:FormProps) => {
                 return (
                   <Grid item className={clsx(e.unsafe && 'unsafe')} key={name}>
                     <TextField
-                      variant="outlined"
+                      variant='outlined'
                       fullWidth
                       onChange={handleInput}
                       label={e.label}
@@ -173,7 +173,7 @@ const Form = (props:FormProps) => {
                         checked={Boolean(state[name])}
                         onChange={f}
                         name={name}
-                        color="primary"
+                        color='primary'
                       />
                     </Grid>
                   </Grid>
@@ -191,17 +191,17 @@ const Form = (props:FormProps) => {
       <Grid item container>
         <Grid item >
           <Button
-            type="submit"
+            type='submit'
             fullWidth
-            variant="contained"
-            color="primary"
+            variant='contained'
+            color='primary'
             onClick={handleSubmit}
           >
             SAVE
           </Button>
         </Grid>
         <Grid item>
-          <Link href={props.link.target} variant="body2" color='textSecondary' className={classes.link}>
+          <Link href={props.link.target} variant='body2' color='textSecondary' className={classes.link}>
             {props.link.text || <></>}
           </Link>
         </Grid>

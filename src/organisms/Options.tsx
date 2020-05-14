@@ -104,7 +104,7 @@ const Options = (props:OptionsProps) => {
   return (
     <Container maxWidth={false} disableGutters className={classes.root}>
       <Box textAlign='center'>
-        <Typography component="h1" variant="h4" className={classes.title}>
+        <Typography component='h1' variant='h4' className={classes.title}>
                     Options
         </Typography>
         <Avatar className={clsx(classes.avatar, action && classes.action)} onClick={handleClick}>
@@ -112,12 +112,12 @@ const Options = (props:OptionsProps) => {
         </Avatar>
         <Divider className={classes.divider} />
       </Box>
-      <Container component="main" maxWidth="xs" className={classes.paper}>
+      <Container component='main' maxWidth='xs' className={classes.paper}>
         <Form data={props.form.data} link={props.form.link} />
       </Container>
       <Box flex={1} display='flex' justifyContent='center' alignItems='flex-end' p={2}>
-        <Typography variant="body2" color="textSecondary" align="center">
-          <Link color="inherit" href="https://github.com/olture/easyLazy">
+        <Typography variant='body2' color='textSecondary' align='center'>
+          <Link color='inherit' href='https://github.com/olture/easyLazy'>
             <GitHubIcon className={classes.linkicon}/>GitHub
           </Link>
         </Typography>

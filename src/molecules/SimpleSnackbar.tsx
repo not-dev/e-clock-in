@@ -31,7 +31,7 @@ const SimpleSnackbar:React.FC<SnackbarProps|SimpleSnackbarProps> = (props) => {
       onClose={props.onClose}
       message={props.message}
       action={hasAction(props) &&
-          <Button color="secondary" size="small" onClick={props.onAction}>
+          <Button color='secondary' size='small' onClick={props.onAction}>
             {props.action}
           </Button>
       }

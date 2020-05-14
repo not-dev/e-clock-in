@@ -19,7 +19,7 @@ const TextDialog:React.FC<TextDialogProps> = (props) => {
     <Dialog
       open={props.open}
       onClose={props.onClose}
-      scroll="paper"
+      scroll='paper'
     >
       <DialogTitle className={classes.title}>Warning</DialogTitle>
       <DialogContent dividers>
@@ -28,10 +28,10 @@ const TextDialog:React.FC<TextDialogProps> = (props) => {
         </DialogContentText>
       </DialogContent>
       <DialogActions>
-        <Button onClick={() => { props.onClose(); props.handleCancel() }} color="primary">
+        <Button onClick={() => { props.onClose(); props.handleCancel() }} color='primary'>
           CANCEL
         </Button>
-        <Button onClick={props.onClose} color="primary" >
+        <Button onClick={props.onClose} color='primary' >
           CONTINUE
         </Button>
       </DialogActions>

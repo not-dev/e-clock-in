@@ -15,6 +15,7 @@ plugins:
   - "@typescript-eslint"
   - simple-import-sort
 rules:
+  "simple-import-sort/sort": "error"
+  jsx-quotes: ["error", "prefer-single"]
   no-unused-vars: "off"
   "@typescript-eslint/no-unused-vars": "error"
-  "simple-import-sort/sort": "error"
