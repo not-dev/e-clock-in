@@ -20,6 +20,8 @@ const TextDialog:React.FC<TextDialogProps> = (props) => {
       open={props.open}
       onClose={props.onClose}
       scroll='paper'
+      maxWidth='sm'
+      fullWidth
     >
       <DialogTitle className={classes.title}>Warning</DialogTitle>
       <DialogContent dividers>
